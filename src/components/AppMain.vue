@@ -19,14 +19,10 @@ export default {
 </script>
 
 <template>
-<div>
-  <ul v-for="(movie, index) in store.moviesListData" :key="index">
-    <li>{{movie.title}}</li>
 
-  </ul>
+<AppCard v-for="(movie, index) in store.moviesListData" :key="index"
+:movie= "movie" />
 
-</div>
-<AppCard/>
 </template>
 
 <style lang="scss" scoped>

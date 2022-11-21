@@ -19,8 +19,8 @@ export default {
   },
 
   methods:{
-    getFilms(){
-      axios.get(store.apiUrl,{
+    getMovies(){
+      axios.get(store.apiUrlMovie,{
         params:{
           api_key: store.apiKey,
           query: store.filmToSearch
@@ -33,14 +33,15 @@ export default {
         console.log(error);
         
       })
-    }
+    },
+
   },
 
 }
 </script>
 
 <template>
-<AppHeader @searchMovie="getFilms()" />
+<AppHeader @searchMovie="getMovies()" />
 <AppMain/>
   
 </template>
