@@ -1,12 +1,30 @@
 <script>
+import {store} from '../data/store'
+
 export default {
-  name: 'AppMain'
+  name: 'AppMain',
+
+  data(){
+    return{
+      store
+    }
+  },
+
+  props:{
+    movie: Object
+  }
 
 }
 </script>
 
 <template>
-  <h2>main</h2>
+  <!-- <ul>
+    <li v-for="movie in store.moviesListData"
+    :key="movie.id">{{movie.title}}</li>
+
+  </ul> -->
+
+  <h1>main</h1>
 </template>
 
 <style>
