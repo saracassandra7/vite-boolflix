@@ -1,8 +1,13 @@
 <script>
 import {store} from '../data/store'
+import AppCard from './AppCard.vue'
 
 export default {
   name: 'AppMain',
+
+  components:{
+    AppCard
+  },
 
   data(){
     return{
@@ -10,23 +15,20 @@ export default {
     }
   },
 
-  props:{
-    movie: Object
-  }
-
 }
 </script>
 
 <template>
-  <!-- <ul>
-    <li v-for="movie in store.moviesListData"
-    :key="movie.id">{{movie.title}}</li>
+<div>
+  <ul v-for="(movie, index) in store.moviesListData" :key="index">
+    <li>{{movie.title}}</li>
 
-  </ul> -->
+  </ul>
 
-  <h1>main</h1>
+</div>
+<AppCard/>
 </template>
 
-<style>
+<style lang="scss" scoped>
 
 </style>

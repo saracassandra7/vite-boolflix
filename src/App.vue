@@ -27,7 +27,7 @@ export default {
         }
       })
       .then(result =>{
-        store.moviesListData = result.data
+        store.moviesListData = result.data.results
       })
       .catch(error=>{
         console.log(error);
