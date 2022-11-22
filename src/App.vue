@@ -28,6 +28,7 @@ export default {
       })
       .then(result =>{
         store[type] = result.data.results
+        console.log(result.data.results);
       })
       .catch(error=>{
         console.log(error);
@@ -35,19 +36,26 @@ export default {
       })
     },
 
-    mounted(){
-      this.getApi('movie')
-      this.getApi('tv')
+    startSearch(){
+      store.movie = [];
+      store.tv =[];
+      if(store.type=== ''){
+        this.getApi('movie')
+        this.getApi('tv')
+      } else{
+        this.getApi(store.type)
+      }
     }
+
   },
 
 }
 </script>
 
 <template>
-<AppHeader />
-<AppMain title="Film" type="movie"/>
-<AppMain title="Serie TV" type="tv" />
+<AppHeader @search="startSearch" />
+<AppMain v-if="store.movie.length > 0" title="Film" type="movie"/>
+<AppMain v-if="store.tv.length > 0" title="Serie TV" type="tv" />
   
 </template>
 
