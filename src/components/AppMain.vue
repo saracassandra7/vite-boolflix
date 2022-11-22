@@ -5,6 +5,11 @@ import AppCard from './AppCard.vue'
 export default {
   name: 'AppMain',
 
+  props:{
+    title: String,
+    type: String
+  },
+
   components:{
     AppCard
   },
@@ -20,8 +25,12 @@ export default {
 
 <template>
 
-<AppCard v-for="(movie, index) in store.moviesListData" :key="index"
-:movie= "movie" />
+<div class="container">
+  <h1>{{title}}</h1>
+
+</div>
+
+<AppCard v-for="card in store[type]" :key="card.id" :card="card" />
 
 </template>
 

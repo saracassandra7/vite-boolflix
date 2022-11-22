@@ -16,14 +16,35 @@ export default {
 </script>
 
 <template>
-  <div class="container mt-3">
-    <input type="text" class="me-3" placeholder="Cerca" v-model="store.filmToSearch">
+  <div class="my-container mt-3 mb-2">
+    <div class="logo">
+      <img src="/logo-boolflix.png" alt="logo">
+    </div>
 
-    <button type="button" class="btn btn-info"
-    @click="$emit('searchMovie')">Cerca</button>
+
+    <div class="search">
+      <input type="text" class="me-3" placeholder="Cerca" v-model.trim="store.filmToSearch">
+
+      <button type="button" class="btn btn-info">Cerca</button>
+    </div>
+    
   </div>
 </template>
 
-<style>
+<style lang="scss" scoped>
+.my-container{
+  width: 95%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+
+  .logo{
+    width: 10vw;
+
+    img{
+      max-width: 100%;
+    }
+  }
+}
 
 </style>

@@ -19,15 +19,15 @@ export default {
   },
 
   methods:{
-    getMovies(){
-      axios.get(store.apiUrlMovie,{
-        params:{
-          api_key: store.apiKey,
-          query: store.filmToSearch
-        }
+    getApi(type){
+      axios.get(store.apiUrl + type, 
+      {params:{
+      api_key: store.apiKey,
+      query: store.filmToSearch
+      }
       })
       .then(result =>{
-        store.moviesListData = result.data.results
+        store[type] = result.data.results
       })
       .catch(error=>{
         console.log(error);
@@ -35,14 +35,19 @@ export default {
       })
     },
 
+    mounted(){
+      this.getApi('movie')
+      this.getApi('tv')
+    }
   },
 
 }
 </script>
 
 <template>
-<AppHeader @searchMovie="getMovies()" />
-<AppMain/>
+<AppHeader />
+<AppMain title="Film" type="movie"/>
+<AppMain title="Serie TV" type="tv" />
   
 </template>
 
