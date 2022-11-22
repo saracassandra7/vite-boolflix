@@ -29,8 +29,11 @@ export default {
   <h1>{{title}}</h1>
 
 </div>
-
-<AppCard v-for="card in store[type]" :key="card.id" :card="card" />
+<div class="container">
+  <div class="row">
+    <AppCard v-for="card in store[type]" :key="card.id" :card="card" />
+  </div>
+</div>
 
 </template>
 

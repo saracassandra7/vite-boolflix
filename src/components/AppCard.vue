@@ -12,20 +12,25 @@ export default {
 
 <template>
 
-<div>- {{card.title || card.name}}</div>
-
-  <!-- <div class="card">
+<div class="sc-container d-flex mb-3">
+  <div class="card">
   
     <div class="card-body">
-      <h4>Titolo: {{movie.title}}</h4>
-      <h4>Titolo Originale: {{movie.original_title}}</h4>
-      <h4>Lingua: {{movie.original_language}}</h4>
-      <h4>Voto: {{movie.vote_average}}</h4>
+      <h4>Titolo: {{card.title || card.name}}</h4>
+      <h4>Titolo Originale: {{card.original_title || card.original_name}}</h4>
+      <h4>Lingua: {{card.original_language}}</h4>
+      <h4>Voto: {{card.vote_average}}</h4>
     </div>
-  </div> -->
+  </div>
+
+</div>
 
 </template>
 
 <style lang="scss" scoped>
+
+.sc-container{
+  width: calc(100% / 4 - 10px );
+}
 
 </style>
