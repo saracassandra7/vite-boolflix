@@ -16,7 +16,8 @@ export default {
 </script>
 
 <template>
-  <div class="my-container mt-3 mb-2">
+<header>
+  <div class="my-container pt-3 pb-3">
     <div class="logo">
       <img src="/logo-boolflix.png" alt="logo">
     </div>
@@ -38,22 +39,31 @@ export default {
     </div>
     
   </div>
+</header>
+
 </template>
 
 <style lang="scss" scoped>
-.my-container{
+header{
+
+  .my-container{
   width: 95%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
 
-  .logo{
+   .logo{
     width: 10vw;
 
-    img{
-      max-width: 100%;
+     img{
+       max-width: 100%;
+     }
+
+    
     }
+
   }
+
 }
 
 </style>

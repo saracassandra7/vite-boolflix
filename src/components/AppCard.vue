@@ -42,9 +42,16 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@use '../styles/partials/vars' as *;
 
 .sc-container{
   width: calc(100% / 4 - 10px );
+
+  .card{
+    background-color: $back-col;
+    border: 1px solid gainsboro;
+
+  }
 
   p{
     display: inline-block;
