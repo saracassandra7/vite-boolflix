@@ -18,7 +18,11 @@ export default {
     <div class="card-body">
       <h4>Titolo: {{card.title || card.name}}</h4>
       <h4>Titolo Originale: {{card.original_title || card.original_name}}</h4>
-      <h4>Lingua: {{card.original_language}}</h4>
+      <h4>Lingua: 
+        <span v-if="card.original_language" :class="'fi fi-' + card.original_language"></span>
+        <span v-if="card.original_language === 'en'" :class="'fi fi-gb' "></span>
+        <span v-else>{{ card.original_language }}</span>
+      </h4>
       <h4>Voto: {{card.vote_average}}</h4>
     </div>
   </div>
