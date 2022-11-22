@@ -6,7 +6,6 @@ export default {
     card: Object
   },
 
-
 }
 </script>
 
@@ -19,14 +18,22 @@ export default {
       <h4>Titolo: {{card.title || card.name}}</h4>
       <h4>Titolo Originale: {{card.original_title || card.original_name}}</h4>
       <img
-       :src="'https://image.tmdb.org/t/p/w185/' + card.poster_path"
-        :alt="card.title || card.name"/>
+      :src="'https://image.tmdb.org/t/p/w185/' + card.poster_path"
+      :alt="card.title || card.name"/>
       <h4>Lingua: 
         <span v-if="card.original_language" :class="'fi fi-' + card.original_language"></span>
         <span v-if="card.original_language === 'en'" :class="'fi fi-gb' "></span>
         <span v-else>{{ card.original_language }}</span>
       </h4>
-      <h4>Voto: {{card.vote_average}}</h4>
+      <h4>Voto: 
+        <p v-for="(star, index) in Math.ceil(card.vote_average / 2)" :key="index">
+          <i class="fa-solid fa-star"></i>
+        </p>
+        <p v-for="(star, index) in Math.floor(5 - card.vote_average / 2)" :key="index">
+          <i class="fa-regular fa-star"></i>
+        </p>
+        
+      </h4>
     </div>
   </div>
 
@@ -38,6 +45,14 @@ export default {
 
 .sc-container{
   width: calc(100% / 4 - 10px );
+
+  p{
+    display: inline-block;
+
+    i{
+      font-size: 1.3rem;
+    }
+  }
 }
 
 </style>
