@@ -17,9 +17,12 @@ export default {
     <div class="card-body">
       <h4>Titolo: {{card.title || card.name}}</h4>
       <h4>Titolo Originale: {{card.original_title || card.original_name}}</h4>
-      <img
+      <img v-if="card.poster_path == null" src="../assets/img/placeholder.png" class="placeholder">
+      <img v-else :src="'https://image.tmdb.org/t/p/w185/' + card.poster_path" :alt="card.title || card.name">
+      
+      <!-- <img
       :src="'https://image.tmdb.org/t/p/w185/' + card.poster_path"
-      :alt="card.title || card.name"/>
+      :alt="card.title || card.name"/> -->
       <h4>Lingua: 
         <span v-if="card.original_language" :class="'fi fi-' + card.original_language"></span>
         <span v-if="card.original_language === 'en'" :class="'fi fi-gb' "></span>
@@ -50,6 +53,12 @@ export default {
   .card{
     background-color: $back-col;
     border: 1px solid gainsboro;
+
+    img.placeholder{
+      width: 185px;
+      height: 278px;
+      object-fit: cover;
+    }
 
   }
 
