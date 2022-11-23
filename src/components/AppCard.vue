@@ -29,7 +29,7 @@ export default {
 
     <div class="info">
       <!-- titolo -->
-      <h4>{{card.title || card.name}}</h4>
+      <h4 class="fw-bold">{{card.title || card.name}}</h4>
       <h6>Original Title: {{card.original_title || card.original_name}}</h6>
 
       
@@ -114,6 +114,10 @@ export default {
     transform: translateY(30px);
     transition: 0.5s; 
     height: 250px;
+
+    h5, h6, p{
+      opacity: .7;
+    }
 
     .overview{
       max-height: 50%;

@@ -22,15 +22,15 @@ export default {
     <div class="search d-flex">
       <input 
       @keyup.enter="$emit('search')"
-      type="text" class="me-3" placeholder="Cerca" v-model.trim="store.filmToSearch">
+      type="text" class="me-3" placeholder="Search" v-model.trim="store.filmToSearch">
 
       <select 
       v-model="store.type"
       @change="$emit('search')"
       class="form-select">
-       <option value="">Tutti</option>
-       <option value="movie">Film</option>
-       <option value="tv">Serie TV</option>
+       <option value="">All</option>
+       <option value="movie">Movies</option>
+       <option value="tv">TV Series</option>
       </select>
     </div>
     
