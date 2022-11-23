@@ -2,26 +2,21 @@
 import {store} from '../data/store'
 import AppCard from './AppCard.vue'
 import AppLoading from './AppLoading.vue'
-
 export default {
   name: 'AppMain',
-
   props:{
     title: String,
     type: String
   },
-
   components:{
     AppCard,
     AppLoading
   },
-
   data(){
     return{
       store
     }
   },
-
 }
 </script>
 
@@ -49,5 +44,4 @@ export default {
 h3{
   opacity: .5;
 }
-
 </style>
