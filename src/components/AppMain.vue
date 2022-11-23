@@ -26,7 +26,7 @@ export default {
 <template>
 
 <div class="container pt-2 pb-3">
-  <h1>{{title}}</h1>
+  <h2>{{title}}</h2>
 
 </div>
 <div class="container">

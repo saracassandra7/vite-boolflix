@@ -1,9 +1,19 @@
 <script>
+import {store} from '../data/store'
+import flags from '../data/flags'
+
 export default {
   name: 'AppCard',
 
   props:{
     card: Object
+  },
+
+  data(){
+    return{
+      store,
+      flags
+    }
   },
 
 }
@@ -12,7 +22,7 @@ export default {
 <template>
 
 <div class="sc-container d-flex mb-3">
-  <div class="sc-card mb-3 mt-3 me-2">
+  <div class="sc-card mb-3 mt-3 me-2 text-center">
     <!-- copertina -->
     <img v-if="card.poster_path == null" src="../assets/img/placeholder.png" class="placeholder">
     <img v-else :src="'https://image.tmdb.org/t/p/w342/' + card.poster_path" :alt="card.title || card.name">
@@ -24,9 +34,10 @@ export default {
 
       
       <h5>Lingua: 
-        <span v-if="card.original_language" :class="'fi fi-' + card.original_language"></span>
-        <span v-if="card.original_language === 'en'" :class="'fi fi-gb' "></span>
-        <span>{{ card.original_language }}</span>
+        <span v-if="flags.includes(card.original_language)" 
+        :class="'fi fi-' + card.original_language"></span>
+        <span v-else-if="card.original_language === 'en'" :class="'fi fi-gb'"></span>
+        <span v-else>{{ card.original_language }}</span>
       </h5>
 
       <h5 class="d-inline">Voto: </h5>
@@ -67,7 +78,7 @@ export default {
   background: white;
   position: relative;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   transition: 0.4s ease-out;
   box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5); }
   .sc-card:hover {
