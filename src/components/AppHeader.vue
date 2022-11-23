@@ -9,9 +9,6 @@ export default {
       store
     }
   }
-
-
-
 }
 </script>
 
@@ -21,7 +18,6 @@ export default {
     <div class="logo">
       <img src="/logo-boolflix.png" alt="logo">
     </div>
-
 
     <div class="search d-flex">
       <input 
@@ -44,6 +40,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@use '../styles/partials/vars' as *;
 header{
 
   .my-container{
@@ -58,12 +55,13 @@ header{
      img{
        max-width: 100%;
      }
-
-    
     }
 
+    select{
+      background-color: $back-col;
+      color: $text-col;
+    }
   }
-
 }
 
 </style>

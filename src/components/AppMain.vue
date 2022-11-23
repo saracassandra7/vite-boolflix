@@ -25,8 +25,8 @@ export default {
 
 <template>
 
-<div class="container pt-2 pb-3">
-  <h2>{{title}}</h2>
+<div class="container pt-2 pb-3 text-center">
+  <h3>{{title}}</h3>
 
 </div>
 <div class="container">
@@ -38,5 +38,8 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+h3{
+  opacity: .5;
+}
 
 </style>

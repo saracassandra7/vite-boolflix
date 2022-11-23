@@ -29,11 +29,11 @@ export default {
 
     <div class="info">
       <!-- titolo -->
-      <h5>Titolo: {{card.title || card.name}}</h5>
-      <h6>Titolo Originale: {{card.original_title || card.original_name}}</h6>
+      <h4>{{card.title || card.name}}</h4>
+      <h6>Original Title: {{card.original_title || card.original_name}}</h6>
 
       
-      <h5>Lingua: 
+      <h5>Language: 
         <span v-if="flags.includes(card.original_language)" 
         :class="'fi fi-' + card.original_language"></span>
         <span v-else-if="card.original_language === 'en'" :class="'fi fi-gb'"></span>
@@ -41,15 +41,13 @@ export default {
         <span v-else>{{ card.original_language }}</span>
       </h5>
 
-      <h5 class="d-inline">Voto: </h5>
+      <h5 class="d-inline">Rating: </h5>
         <p v-for="(star, index) in Math.ceil(card.vote_average / 2)" :key="index">
           <i class="fa-solid fa-star"></i>
         </p>
         <p v-for="(star, index) in Math.floor(5 - card.vote_average / 2)" :key="index">
           <i class="fa-regular fa-star"></i>
         </p>
-        
-      
 
       <div class="overview">
         <h6>Overview:</h6>
@@ -57,7 +55,6 @@ export default {
       </div>
 
     </div>
-
 
   </div>
 
@@ -127,7 +124,6 @@ export default {
       }
 
     }
-    
     }
 
     img.placeholder{
