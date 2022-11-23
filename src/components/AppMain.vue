@@ -1,6 +1,7 @@
 <script>
 import {store} from '../data/store'
 import AppCard from './AppCard.vue'
+import AppLoading from './AppLoading.vue'
 
 export default {
   name: 'AppMain',
@@ -11,7 +12,8 @@ export default {
   },
 
   components:{
-    AppCard
+    AppCard,
+    AppLoading
   },
 
   data(){
@@ -25,15 +27,21 @@ export default {
 
 <template>
 
-<div class="container pt-2 pb-3 text-center">
+<div class="container pt-2 pb-3 text-center" v-if="store.isLoaded">
   <h3>{{title}}</h3>
 
+  <div class="container">
+   <div class="row justify-content-evenly">
+     <AppCard v-for="card in store[type]" :key="card.id" :card="card" />
+   </div>
+  </div> 
+
 </div>
-<div class="container">
-  <div class="row justify-content-evenly">
-    <AppCard v-for="card in store[type]" :key="card.id" :card="card" />
-  </div>
+
+<div v-else>
+  <AppLoading/>
 </div>
+
 
 </template>
 

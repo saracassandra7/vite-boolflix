@@ -94,7 +94,7 @@ export default {
     display: block;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(0, 0, 0, 0.9);
     z-index: 2;
     transition: 0.5s;
     opacity: 0; }
@@ -116,7 +116,7 @@ export default {
     height: 250px;
 
     h5, h6, p{
-      opacity: .7;
+      opacity: .8;
     }
 
     .overview{

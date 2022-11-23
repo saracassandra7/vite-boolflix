@@ -8,4 +8,6 @@ export const store = reactive({
   movie: [],
   tv: [],
 
+  isLoaded: false
+
 })

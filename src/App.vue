@@ -24,6 +24,8 @@ export default {
       let apiUrl;
       if(isPopular) apiUrl = 'https://api.themoviedb.org/3/movie/popular/'
       else apiUrl = store.apiUrl + type
+
+      store.isLoaded = false
       axios.get(apiUrl, 
       {params:{
       api_key: store.apiKey,
@@ -33,6 +35,7 @@ export default {
       .then(result =>{
         store[type] = result.data.results
         console.log(result.data.results);
+        store.isLoaded = true
       })
       .catch(error=>{
         console.log(error);
