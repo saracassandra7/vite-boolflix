@@ -12,24 +12,24 @@ export default {
 <template>
 
 <div class="sc-container d-flex mb-3">
-  <div class="sc-card m-3">
+  <div class="sc-card mb-3 mt-3 me-2">
     <!-- copertina -->
     <img v-if="card.poster_path == null" src="../assets/img/placeholder.png" class="placeholder">
     <img v-else :src="'https://image.tmdb.org/t/p/w342/' + card.poster_path" :alt="card.title || card.name">
 
     <div class="info">
       <!-- titolo -->
-      <h4>Titolo: {{card.title || card.name}}</h4>
-      <h4>Titolo Originale: {{card.original_title || card.original_name}}</h4>
+      <h5>Titolo: {{card.title || card.name}}</h5>
+      <h6>Titolo Originale: {{card.original_title || card.original_name}}</h6>
 
       
-      <h4>Lingua: 
+      <h5>Lingua: 
         <span v-if="card.original_language" :class="'fi fi-' + card.original_language"></span>
         <span v-if="card.original_language === 'en'" :class="'fi fi-gb' "></span>
         <span>{{ card.original_language }}</span>
-      </h4>
+      </h5>
 
-      <h4>Voto: 
+      <h5 class="d-inline">Voto: </h5>
         <p v-for="(star, index) in Math.ceil(card.vote_average / 2)" :key="index">
           <i class="fa-solid fa-star"></i>
         </p>
@@ -37,7 +37,12 @@ export default {
           <i class="fa-regular fa-star"></i>
         </p>
         
-      </h4>
+      
+
+      <div class="overview">
+        <h6>Overview:</h6>
+        <p>{{card.overview}}</p>
+      </div>
 
     </div>
 
@@ -52,15 +57,17 @@ export default {
 @use '../styles/partials/vars' as *;
 
 .sc-container{
-  width: calc(100% / 4 - 5px);
+  width: calc(100% / 4 - 10px);
 
   .sc-card {
+    height: 400px;
+    
   cursor: pointer;
   padding: 1.5rem;
   background: white;
   position: relative;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   transition: 0.4s ease-out;
   box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5); }
   .sc-card:hover {
@@ -96,19 +103,27 @@ export default {
     color: white;
     opacity: 0;
     transform: translateY(30px);
-    transition: 0.5s; }
+    transition: 0.5s; 
+    height: 250px;
+
+    .overview{
+      max-height: 50%;
+      overflow-y: auto;
+
+      p{
+        font-size: .85rem;
+      }
+
+    }
+    
+    }
 
     img.placeholder{
-      
       object-fit: cover;
     }
 
    p{
     display: inline-block;
-
-     i{
-       font-size: 1.3rem;
-      }
     }
 }
 

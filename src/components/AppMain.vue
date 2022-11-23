@@ -30,7 +30,7 @@ export default {
 
 </div>
 <div class="container">
-  <div class="row">
+  <div class="row justify-content-evenly">
     <AppCard v-for="card in store[type]" :key="card.id" :card="card" />
   </div>
 </div>
