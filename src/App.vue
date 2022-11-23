@@ -19,8 +19,12 @@ export default {
   },
 
   methods:{
-    getApi(type){
-      axios.get(store.apiUrl + type, 
+
+    getApi(type, isPopular = false){
+      let apiUrl;
+      if(isPopular) apiUrl = 'https://api.themoviedb.org/3/movie/popular/'
+      else apiUrl = store.apiUrl + type
+      axios.get(apiUrl, 
       {params:{
       api_key: store.apiKey,
       query: store.filmToSearch
@@ -48,6 +52,10 @@ export default {
     }
 
   },
+
+  mounted(){
+    this.getApi('movie', true)
+  }
 }
 </script>
 

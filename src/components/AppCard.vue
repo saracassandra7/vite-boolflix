@@ -37,6 +37,7 @@ export default {
         <span v-if="flags.includes(card.original_language)" 
         :class="'fi fi-' + card.original_language"></span>
         <span v-else-if="card.original_language === 'en'" :class="'fi fi-gb'"></span>
+        <span v-else-if="card.original_language === 'ja'" :class="'fi fi-jp'"></span>
         <span v-else>{{ card.original_language }}</span>
       </h5>
 
